@@ -5,7 +5,7 @@ const Hint = (props) => {
 	const populationHint = `${props.population
 		.toString()
 		.replace(/\B(?=(\d{3})+(?!\d))/g, ",")} people live there.`;
-	const hintMessage = <span>{Math.random() > 0.5 ? populationHint : capitalHint}</span>;
+	const hintMessage = <span>{(Math.random() > 0.5 && !props.hint) ? populationHint : capitalHint}</span>;
 	return (
 		<div className="hint">
 			{props.gameWon &&
