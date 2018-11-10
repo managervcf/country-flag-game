@@ -13,6 +13,7 @@ class CountryFlagGame extends Component {
       flag: '',
       countries: [],
       gameWon: false,
+      gameLost: false,
       hint: false,
       clickedFlags: [],
       population: 0,
@@ -30,14 +31,13 @@ class CountryFlagGame extends Component {
   }
 
   handleClick(country) {
+    const delay = this.state.hint ? 2100 : 1300;
     if (this.state.flag === country.flag) {
-      const delay = this.state.hint ? 2100 : 1300;
       setTimeout(() => this.resetGame(), delay);
       this.setState({gameWon: true});
     } else {
-      this.setState(prevState => ({
-        clickedFlags: [...prevState.clickedFlags, country.flag]
-      }));     
+      setTimeout(() => this.resetGame(), delay);
+      this.setState({gameLost: true});
     }
   }
 
@@ -61,8 +61,8 @@ class CountryFlagGame extends Component {
       population,
       capital,
       gameWon: false,
-      hint: false,
-      clickedFlags: [],
+      gameLost: false,
+      hint: false
     });
   }
 
@@ -75,9 +75,15 @@ class CountryFlagGame extends Component {
       <div>
         <Navbar resetGame={this.resetGame}/>
         <main>
-          <CountryOptions {...this.state} {...this}/>
-          <Flag {...this.state} {...this}/>
-          <Hint {...this.state} {...this}/>
+          <CountryOptions
+            {...this.state}
+            {...this} />
+          <Flag
+            {...this.state}
+            {...this} />
+          <Hint
+            {...this.state}
+            {...this} />
         </main>
       </div>
     );
