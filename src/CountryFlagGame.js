@@ -24,7 +24,7 @@ class CountryFlagGame extends Component {
 	}
 
   showHint() {
-    if (!this.state.gameWon) {
+    if (!this.state.gameWon && !this.state.hint) {
       this.setState({hint: true});
     }
   }
