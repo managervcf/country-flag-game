@@ -5,7 +5,12 @@ const Hint = (props) => {
 	const populationHint = `${props.population
 		.toString()
 		.replace(/\B(?=(\d{3})+(?!\d))/g, ",")} people live there.`;
-	const hintMessage = <span>{(Math.random() > 0.5 && !props.hint) ? populationHint : capitalHint}</span>;
+	const hintMessage = (
+		props.hint &&
+		<span>
+			{Math.random() > 0.5 ? populationHint : capitalHint}
+		</span>
+	);
 	const correctAnswer = props.countries.find(country => (
 		country.flag === props.flag
 	))
