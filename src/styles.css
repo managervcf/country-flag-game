@@ -4,6 +4,7 @@ body {
   margin: 0;
   background-color: white;
   color: #262626;
+  user-select: none;
 }
 
 header, main {
