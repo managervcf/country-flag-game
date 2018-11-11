@@ -9,15 +9,14 @@ class CountryFlagGame extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-      numbersOfGuessOptions: 4,
+      numOfGuessOptions: 4,
       flag: '',
+      capital: '',     
+      population: 0,
       countries: [],
       gameWon: false,
       gameLost: false,
       hint: false,
-      clickedFlags: [],
-      population: 0,
-      capital: ''
 		}
     this.showHint = this.showHint.bind(this);
     this.resetGame = this.resetGame.bind(this);
@@ -31,7 +30,7 @@ class CountryFlagGame extends Component {
   }
 
   handleClick(country) {
-    const delay = this.state.hint ? 2100 : 1300;
+    const delay = this.state.hint ? 2200 : 1500;
     if (this.state.flag === country.flag) {
       setTimeout(() => this.resetGame(), delay);
       this.setState({gameWon: true});
@@ -47,7 +46,7 @@ class CountryFlagGame extends Component {
     const allCountries = await response.json();
     const length = allCountries.length;
     const randomIndexes = Array.from(
-      { length: this.state.numbersOfGuessOptions },
+      { length: this.state.numOfGuessOptions },
       () => Math.floor(Math.random() * length)
     );
     const countries = allCountries.filter((country, index) => (
