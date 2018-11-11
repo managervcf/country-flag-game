@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css?family=Cabin+Sketch');
+
 body {
-  font-family: monospace;
+  font-family: 'Cabin Sketch';
   pading: 0;
   margin: 0;
   background-color: white;
@@ -53,7 +55,7 @@ button {
 }
 
 .country-buttons {
-  margin: 20px 1.5% 15px 1.5%;
+  margin: 20px 1.5% 20px 1.5%;
 }
 
 .hint {
