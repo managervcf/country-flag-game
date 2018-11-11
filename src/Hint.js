@@ -24,11 +24,12 @@ const Hint = (props) => {
 					? `Wrong. The answer is ${correctAnswer.name}.`
 					: 'Wrong. Even a hint didn\'t help?'}
 			</h4>}
+			{(!props.gameWon && !props.gameLost) &&
 			<button
 				className='hint-button'
 				onClick={props.showHint}>
 				{(props.hint && hintMessage) || '?'}
-			</button>
+			</button>}
 		</div>
 	);
 }
