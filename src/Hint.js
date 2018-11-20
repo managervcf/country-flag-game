@@ -1,6 +1,8 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { resetGame, showHint } from './actionCreators';
 
-const Hint = (props) => {
+const Hint = props => {
 	const capitalHint = `Is has a capital city called ${props.capital}.`;
 	const populationHint = `${props.population
 		.toString()
@@ -14,7 +16,6 @@ const Hint = (props) => {
 	const correctAnswer = props.countries.find(country => (
 		country.flag === props.flag
 	))
-	console.log(correctAnswer);
 	return (
 		<div className="hint">
 			{props.gameWon &&
@@ -39,4 +40,8 @@ const Hint = (props) => {
 	);
 }
 
-export default Hint;
+const mapStateToProps = reduxState => ({
+  ...reduxState
+});
+
+export default connect(mapStateToProps, { resetGame, showHint })(Hint);

@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { resetGame } from './actionCreators';
 
-const Navbar = ({resetGame}) => {
+const Navbar = ({ resetGame }) => {
 	return (
 		<header>
 			<h1>Coutry Flag Game</h1>
@@ -14,8 +16,4 @@ const Navbar = ({resetGame}) => {
 	);
 }
 
-Navbar.propTypes = {
-	resetGame: PropTypes.func.isRequired
-}
-
-export default Navbar;
+export default connect(null, { resetGame })(Navbar);

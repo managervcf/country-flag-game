@@ -1,6 +1,7 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
-const Flag = ({countries, flag}) => {
+const Flag = ({ countries, flag }) => {
 	return (
 		<img
 			alt={countries.numericCode}
@@ -8,4 +9,9 @@ const Flag = ({countries, flag}) => {
 	);
 }
 
-export default Flag;
+const mapStateToProps = reduxState => ({
+  countries: reduxState.countries,
+  flag: reduxState.flag
+});
+
+export default connect(mapStateToProps, null)(Flag);
