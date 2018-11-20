@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Navbar from './Navbar';
 import CountryOptions from './CountryOptions';
 import Flag from './Flag';
