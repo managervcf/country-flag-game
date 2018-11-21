@@ -9,7 +9,7 @@ const Flag = ({ countries, flag }) => {
 	);
 }
 
-const mapStateToProps = reduxState => ({
+const mapStateToProps = (reduxState) => ({
   countries: reduxState.countries,
   flag: reduxState.flag
 });
