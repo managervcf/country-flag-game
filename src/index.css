@@ -33,13 +33,6 @@ nav {
   justify-content: center;
 }
 
-img {
-  border-radius: 20px;
-  box-shadow: 0px 3px 22px #a4a4a4;
-  width: 35%;
-  min-width: 300px;
-}
-
 button {
   font-size: 1rem;
   font-family: inherit;
@@ -71,21 +64,29 @@ footer a {
 }
 
 .country-buttons.animate {
-  transform: translateY(-5px);
+  transform: translateY(-10px);
   visibility: hidden;
   opacity: 0;
 }
 
 .flag {
-  transition: all .5s 1s linear;
+  border-radius: 20px;
+  box-shadow: 0px 3px 22px #a4a4a4;
+  width: 35%;
+  min-width: 300px;
+  transition: all .5s 1s linear,
+              width 0.4s 0.5s ease-out,
+              min-width 0.4s 0.5s ease-out;
   visibility: visible;
   opacity: 1;
 }
 
 .flag.animate {
-  transform: translateY(-5px);
+  transform: translateY(-10px);
   visibility: hidden;
   opacity: 0;
+  min-width: 0px;
+  width: 0px;
 }
 
 .hint {
