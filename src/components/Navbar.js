@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { resetGame } from './actionCreators';
+import { resetGame } from '../actions';
 
 const Navbar = ({ resetGame }) => {
 	return (

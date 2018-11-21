@@ -1,23 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import CountryFlagGame from './CountryFlagGame';
-import * as serviceWorker from './serviceWorker';
-import { createStore, compose, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
-import thunk from 'redux-thunk';
-import rootReducer from './rootReducer';
-
-const store = createStore(
-	rootReducer,
-	compose(applyMiddleware(thunk))
-);
+import App from './components/App';
+import store from './store/';
+import './index.css';
 
 ReactDOM.render(
 	<Provider store={store}>
-		<CountryFlagGame />
+		<App />
 	</Provider>
 	,
 	document.getElementById('root')
 );
-
-serviceWorker.unregister();

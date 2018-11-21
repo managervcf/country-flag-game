@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { resetGame, checkAnswer } from './actionCreators'
+import {
+	resetGame,
+	checkAnswer
+} from '../actions'
 
 class CountryOptions extends Component {
 	constructor(props) {

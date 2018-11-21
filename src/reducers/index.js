@@ -2,7 +2,7 @@ import {
 	RESET_GAME,
 	SHOW_HINT,
 	CHECK_ANSWER
-} from './actionCreators';
+} from '../actions';
 
 const initialState = {
   numOfGuessOptions: 4,

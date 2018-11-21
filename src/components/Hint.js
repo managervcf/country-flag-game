@@ -1,6 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { resetGame, showHint } from './actionCreators';
+import {
+	resetGame,
+	showHint
+} from '../actions';
 
 const Hint = props => {
 	const capitalHint = `Is has a capital city called ${props.capital}.`;

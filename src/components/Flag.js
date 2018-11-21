@@ -14,4 +14,4 @@ const mapStateToProps = reduxState => ({
   flag: reduxState.flag
 });
 
-export default connect(mapStateToProps, null)(Flag);
+export default connect(mapStateToProps)(Flag);

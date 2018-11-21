@@ -3,7 +3,6 @@ import Navbar from './Navbar';
 import CountryOptions from './CountryOptions';
 import Flag from './Flag';
 import Hint from './Hint';
-import './styles.css';
 
 const CountryFlagGame = () => {
   return (
