@@ -60,10 +60,31 @@ footer a {
 
 .country-buttons:hover, .new-game-button:hover {
   transform: translateY(-2px);
+  transition: .3s;
 }
 
 .country-buttons {
   margin: 20px 1.5% 20px 1.5%;
+  transition: .5s .8s ease-out;
+  opacity: 1;
+}
+
+.country-buttons.animate {
+  transform: translateY(-10px);
+  opacity: 0;
+  transition: .5s .8s ease-out;
+}
+
+.flag {
+  transform: scale(1);
+  transition: .5s .8s ease-out;
+  opacity: 1;
+}
+
+.flag.animate {
+  transform: scale(1.1);
+  opacity: 0;
+  transition: .5s .8s ease-out;
 }
 
 .hint {

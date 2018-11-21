@@ -9,7 +9,7 @@ import Flag from './Flag';
 import Hint from './Hint';
 
 class CountryFlagGame extends Component {
-  componentDidMount() {
+  componentWillMount() {
     this.props.resetGame();
   }
   render() {

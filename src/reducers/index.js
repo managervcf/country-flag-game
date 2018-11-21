@@ -10,6 +10,7 @@ const initialState = {
   capital: '',     
   population: 0,
   countries: [],
+  gameInProgress: true,
   gameWon: false,
   gameLost: false,
   hint: false,
@@ -35,6 +36,7 @@ const rootReducer = (state=initialState, action) => {
 		    countries,
 		    population,
 		    capital,
+		    gameInProgress: true,
 		    gameWon: false,
 		    gameLost: false,
 		    hint: false
@@ -45,8 +47,8 @@ const rootReducer = (state=initialState, action) => {
 	      : { ...state };
 	  case CHECK_ANSWER:
 	  	return state.flag === action.country.flag
-	  		? { ...state, gameWon: true }
-	  		: { ...state, gameLost: true };
+	  		? { ...state, gameWon: true, gameInProgress: false }
+	  		: { ...state, gameLost: true, gameInProgress: false };
 		default:
 			return state;
 	}

@@ -10,19 +10,20 @@ class CountryOptions extends Component {
   
   handleClick(country) {
     this.props.checkAnswer(country);
-    const delay = this.props.hint ? 2200 : 1500;
-    setTimeout(() => this.props.resetGame(), delay);
+    setTimeout(() => this.props.resetGame(), 1800);
   }
 
   render() {
 		const countryButtons = this.props.countries.map((country, index) => {
+			const buttonClasses = ['country-buttons'];
+			if (!this.props.gameInProgress) {
+				buttonClasses.push('animate');
+			}
 			return (
 				<button
-					className='country-buttons'
+					className={buttonClasses.join(' ')}
 					onClick={() =>
-						(!this.props.gameWon && !this.props.gameLost)
-							? this.handleClick(country)
-							: null}
+						(this.props.gameInProgress) ? this.handleClick(country) : null}
 					key={index}>
 					{country.name}
 				</button>
