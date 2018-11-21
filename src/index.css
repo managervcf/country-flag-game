@@ -75,13 +75,16 @@ footer a {
   width: 35%;
   min-width: 300px;
   transition: all .5s 1s linear,
-              width 0.4s 0.5s ease-out,
-              min-width 0.4s 0.5s ease-out;
+              width 0.3s 0.5s ease-out,
+              min-width 0.3s 0.5s ease-out;
   visibility: visible;
   opacity: 1;
 }
 
 .flag.animate {
+  transition: all .2s .7s ease-out,
+              width .2s .7s ease-out,
+              min-width .2s .7s ease-out;
   transform: translateY(-10px);
   visibility: hidden;
   opacity: 0;
