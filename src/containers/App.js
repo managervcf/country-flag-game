@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { resetGame } from '../actions';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import NewGameButton from './NewGameButton';
@@ -6,19 +8,24 @@ import CountryButtons from './CountryButtons';
 import Flag from './Flag';
 import Hint from './Hint';
 
-const CountryFlagGame = () => {
-  return (
-    <div>
-      <Header />
-      <main>
-        <NewGameButton />
-        <CountryButtons />
-        <Flag />
-        <Hint />
-      </main>
-      <Footer />
-    </div>
-  );
+class CountryFlagGame extends Component {
+  componentDidMount() {
+    this.props.resetGame();
+  }
+  render() {
+    return (
+      <div>
+        <Header />
+        <main>
+          <NewGameButton />
+          <CountryButtons />
+          <Flag />
+          <Hint />
+        </main>
+        <Footer />
+      </div>
+    );
+  }
 }
 
-export default CountryFlagGame;
+export default connect(null, { resetGame })(CountryFlagGame);

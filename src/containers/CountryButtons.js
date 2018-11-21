@@ -1,19 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {
-	resetGame,
-	checkAnswer
-} from '../actions'
+import { resetGame, checkAnswer } from '../actions';
 
 class CountryOptions extends Component {
 	constructor(props) {
 		super(props);
 		this.handleClick = this.handleClick.bind(this);
 	}
-
-	componentDidMount() {
-    this.props.resetGame();
-  }
   
   handleClick(country) {
     this.props.checkAnswer(country);
