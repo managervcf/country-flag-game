@@ -65,26 +65,27 @@ footer a {
 
 .country-buttons {
   margin: 20px 1.5% 20px 1.5%;
-  transition: .5s .8s ease-out;
+  transition: all .5s .6s linear;
+  visibility: visible;
   opacity: 1;
 }
 
 .country-buttons.animate {
-  transform: translateY(-10px);
+  transform: translateY(-5px);
+  visibility: hidden;
   opacity: 0;
-  transition: .5s .8s ease-out;
 }
 
 .flag {
-  transform: scale(1);
-  transition: .5s .8s ease-out;
+  transition: all .5s 1s linear;
+  visibility: visible;
   opacity: 1;
 }
 
 .flag.animate {
-  transform: scale(1.1);
+  transform: translateY(-5px);
+  visibility: hidden;
   opacity: 0;
-  transition: .5s .8s ease-out;
 }
 
 .hint {
@@ -96,7 +97,7 @@ footer a {
 .hint-button {
   float: left;
   transform: none;
-  transition: all 0.1s ease-out;
+  transition: all 1s ease-out;
   padding: 5px 10px;
   margin-top: 20px;
   border: 1px solid #262626;
