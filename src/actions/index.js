@@ -1,13 +1,9 @@
-import {
-	RESET_GAME,
-	SHOW_HINT,
-	CHECK_ANSWER
-} from '../constants';
+import { RESET_FLAG, CHECK_ANSWER, SHOW_HINT, RESTART_GAME } from '../constants';
 
 const url = 'https://restcountries.eu/rest/v2/all';
 
-const resetGameAction = allCountries => ({
-	type: RESET_GAME,
+const resetFlagAction = allCountries => ({
+	type: RESET_FLAG,
 	allCountries
 });
 
@@ -20,16 +16,24 @@ const showHintAction = () => ({
 	type: SHOW_HINT
 });
 
-export const resetGame = () => async dispatch => {
-  const response = await fetch(url);
-  const allCountries = await response.json();
-  dispatch(resetGameAction(allCountries));
-}
+const restartGameAction = () => ({
+	type: RESTART_GAME
+})
 
-export const checkAnswer = (country) => dispatch => {
+export const resetFlag = () => async dispatch => {
+	const response = await fetch(url);
+	const allCountries = await response.json();
+	dispatch(resetFlagAction(allCountries));
+};
+
+export const checkAnswer = country => dispatch => {
 	dispatch(checkAnswerAction(country));
-}
+};
 
 export const showHint = () => dispatch => {
 	dispatch(showHintAction());
+};
+
+export const restartGame = () => dispatch => {
+	dispatch(restartGameAction());
 }

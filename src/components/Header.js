@@ -1,11 +1,23 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
-const Header = () => {
+const Header = ({ score, numOfGuesses, gameInProgress }) => {
 	return (
 		<header>
-			<h1>Coutry Flag Game</h1>
+			<h1>Country Flag Game</h1>
+			{score === 0 && numOfGuesses === 0 ? (
+				<p>Do you recognize this flag?</p>
+			) : (
+				<p>
+					Your score: {score} / {numOfGuesses}
+				</p>
+			)}
 		</header>
 	);
-}
+};
 
-export default Header;
+const mapStateToProps = reduxState => ({
+	...reduxState
+});
+
+export default connect(mapStateToProps)(Header);
