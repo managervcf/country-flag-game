@@ -33,7 +33,7 @@ class CountryFlagGame extends Component {
           </main>
         ) : (
           <main>
-            <h1>Fancy little text describing the score</h1>
+            <h1>Good job. You made to the end.</h1>
             <button className="hint-button" onClick={this.handleNewGame}>
               Try Again
             </button>
