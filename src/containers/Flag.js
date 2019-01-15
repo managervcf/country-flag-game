@@ -2,13 +2,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 const Flag = ({ countries, flag, gameInProgress }) => {
-	const flagClasses = ['flag'];
-	if (!gameInProgress) {
-		flagClasses.push('animate');
-	}
+	const flagClasses = gameInProgress ? ['flag'] : ['flag animate'];
 	return (
 		<img 
-			className={flagClasses.join(' ')}
+			className={flagClasses}
 			alt={countries.numericCode}
 			src={flag}/>
 	);

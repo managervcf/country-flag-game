@@ -30,10 +30,10 @@ const Hint = props => {
 				</h4>
 			)}
 			{props.gameInProgress && (
-					<button className="hint-button" onClick={props.showHint}>
-						{(props.hint && hintMessage) || 'Need a hint? It\'s only 0.5 point.'}
-					</button>
-				)}
+				<button className="btn" onClick={props.showHint}>
+					{(props.hint && hintMessage) || 'Get a hint for 0.5 point.'}
+				</button>
+			)}
 		</div>
 	);
 };

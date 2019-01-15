@@ -1,17 +1,17 @@
 import { RESET_FLAG, SHOW_HINT, CHECK_ANSWER, RESTART_GAME } from '../constants';
 
 const initialState = {
-	score: 0,
-	numOfGuesses: 0,
-	gameOver: false,
-	numOfGuessOptions: 4,
 	flag: '',
 	capital: '',
-	population: 0,
 	countries: [],
+	population: 0,
+	score: 0,
+	numOfGuesses: 0,
+	numOfGuessOptions: 4,
 	gameInProgress: true,
 	gameWon: false,
 	gameLost: false,
+	gameOver: false,
 	hint: false
 };
 
