@@ -11,6 +11,7 @@ body {
   font-family: var(--primary-font);
   color: var(--primary-color);
   user-select: none;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
 }
 
 header,
