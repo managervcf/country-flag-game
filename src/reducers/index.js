@@ -1,4 +1,9 @@
-import { RESET_FLAG, SHOW_HINT, CHECK_ANSWER, RESTART_GAME } from '../constants';
+import {
+	RESET_FLAG,
+	SHOW_HINT,
+	CHECK_ANSWER,
+	RESTART_GAME
+} from '../constants';
 
 const initialState = {
 	flag: '',
@@ -7,7 +12,7 @@ const initialState = {
 	population: 0,
 	score: 0,
 	numOfGuesses: 0,
-	numOfGuessOptions: 4,
+	numOfGuessOptions: 3,
 	gameInProgress: true,
 	gameWon: false,
 	gameLost: false,
@@ -22,7 +27,7 @@ const rootReducer = (state = initialState, action) => {
 			const length = allCountries.length;
 			const randomIndexes = Array.from(
 				{ length: state.numOfGuessOptions },
-				() => Math.floor(Math.random() * length)
+				() => Math.floor(Math.random() * length - 1)
 			);
 			const countries = allCountries.filter((country, index) =>
 				randomIndexes.includes(index)
