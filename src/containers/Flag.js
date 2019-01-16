@@ -3,18 +3,11 @@ import { connect } from 'react-redux';
 
 const Flag = ({ countries, flag, gameInProgress }) => {
 	const flagClasses = gameInProgress ? ['flag'] : ['flag animate'];
-	return (
-		<img 
-			className={flagClasses}
-			alt={countries.numericCode}
-			src={flag}/>
-	);
-}
+	return <img className={flagClasses} alt={countries.numericCode} src={flag} />;
+};
 
-const mapStateToProps = (reduxState) => ({
-  countries: reduxState.countries,
-  flag: reduxState.flag,
-  gameInProgress: reduxState.gameInProgress
+const mapStateToProps = reduxState => ({
+	...reduxState
 });
 
 export default connect(mapStateToProps)(Flag);
