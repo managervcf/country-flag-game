@@ -25,13 +25,26 @@ const rootReducer = (state = initialState, action) => {
 		case RESET_FLAG:
 			const { allCountries } = action;
 			const length = allCountries.length;
-			const randomIndexes = Array.from(
-				{ length: state.numOfGuessOptions },
-				() => Math.floor(Math.random() * length - 1)
-			);
-			const countries = allCountries.filter((country, index) =>
-				randomIndexes.includes(index)
-			);
+			const countries = [];
+			// Loop over data and pick unique countries
+			while (countries.length < state.numOfGuessOptions) {
+				let randomIndex = Math.floor(Math.random() * length);
+				let randomCountry = allCountries[randomIndex];
+				if (countries.indexOf(randomCountry) === -1) {
+					countries.push(randomCountry);
+				}
+			}
+
+			// Old way to pick random countries
+			// const randomIndexes = Array.from(
+			// 	{ length: state.numOfGuessOptions },
+			// 	() => Math.floor(Math.random() * length)
+			// );
+			// const countries = allCountries.filter((country, index) =>
+			// 	randomIndexes.includes(index)
+			// );
+
+			console.log(countries);
 			const pickedIndex = Math.floor(Math.random() * countries.length);
 			const { flag, population, capital } = countries[pickedIndex];
 			return {
