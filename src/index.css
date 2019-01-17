@@ -1,130 +1,170 @@
 @import url('https://fonts.googleapis.com/css?family=Cabin+Sketch');
 
 :root {
-  --primary-color: #262626;
-  --shadow: 0 2px 8px 0 rgba(0, 0, 0, .1);
-  --shadow-on-hover: 0 2px 40px 0 rgba(0, 0, 0, .1);
-  --primary-font: 'Cabin Sketch';
+	--primary-color: #262626;
+	--shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.1);
+	--shadow-on-hover: 0 2px 40px 0 rgba(0, 0, 0, 0.1);
+	--primary-font: 'Cabin Sketch';
+	--bounce: cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 body {
-  font-family: var(--primary-font);
-  color: var(--primary-color);
-  user-select: none;
-  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
-  text-align: center;
+	font-family: var(--primary-font);
+	color: var(--primary-color);
+	-webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+	user-select: none;
+	text-align: center;
 }
 
 header,
 main {
-  min-height: 100px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(5px + 3.3vmin);
+	position: relative;
+	/*min-height: 100px;*/
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	font-size: calc(5px + 3vmin);
 }
 
 h1 {
-  margin: 10px auto 0px auto;
-}
-
-h4 {
-  margin: 0;
-}
-
-p {
-  margin: 20px auto;
+	margin: 10px auto 0px auto;
 }
 
 nav {
-  margin: 20px 0;
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
+	height: 55px;
+	margin: 20px 0 5px 0;
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
 }
 
 button {
 	/*text-align: center;*/
-  font-size: 1rem;
-  font-family: inherit;
-  background-color: inherit;
-  border: none;
-  outline: none;
-  cursor: pointer;
+	font-size: 1rem;
+	font-family: inherit;
+	background-color: inherit;
+	border: none;
+	outline: none;
+	cursor: pointer;
 }
 
 footer {
-  margin-top: 20px;
-  text-align: center;
+	text-align: center;
 }
 
 footer a:visited {
-  color: inherit;
+	color: inherit;
 }
 
 footer a i {
-  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+	transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 footer a:hover i {
-  transform: translateY(-5px) scale(1.5);
+	transform: translateY(-5px) scale(1.5);
 }
 
-.btn {
-  padding: 5px 10px;
-  border: 1px solid #262626;
-  border-radius: 15px;
-  box-shadow: var(--shadow);
-  transition: all 0.3s;
+.game-content {
+	transition: 1s 0.5 ease-out;
+}
+
+.game-over-content {
+	position: absolute;
+	transition: 0.3s 1.2s ease-out;
+}
+
+.show {
+	opacity: 1;
+	visibility: visible;
+	z-index: 1;
+}
+
+.hide {
+	transition: 0.5s 0.5s ease-out;
+	transform: translateY(15px);
+	opacity: 0;
+	visibility: hidden;
+	z-index: -1;
+}
+
+.wrong-guess {
+	animation: shake .4s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+	transform: translate3d(0, 0, 0);
+}
+
+@keyframes shake {
+	10%,
+	90% {
+		transform: translate3d(-1px, 0, 0);
+	}
+
+	20%,
+	80% {
+		transform: translate3d(2px, 0, 0);
+	}
+
+	30%,
+	50%,
+	70% {
+		transform: translate3d(-4px, 0, 0);
+	}
+
+	40%,
+	60% {
+		transform: translate3d(4px, 0, 0);
+	}
+}
+
+
+.new-game-button {
+	padding: 5px 10px;
+	border: 1px solid #262626;
+	border-radius: 15px;
+	box-shadow: var(--shadow);
+	transition: all 0.3s;
 }
 
 .country-buttons {
-  margin: 0 1.5%;
-  transition: all 0.5s 0.6s;
-  visibility: visible;
-  opacity: 1;
-}
-
-.country-buttons.animate {
-  transform: rotateY(10deg);
-  visibility: hidden;
-  opacity: 0;
+	font-weight: bold;
+	margin: 0 1.5%;
+	transition: all 0.5s 0.5s;
 }
 
 .flag {
-  border-radius: 20px;
-  box-shadow: 0px 3px 22px #a4a4a4;
-  width: 35%;
-  min-width: 300px;
-  transition: all 0.3s 0.5s ease-out, opacity 0.5s 1s linear;
-  visibility: visible;
-  opacity: 1;
+	overflow: hidden;
+	border-radius: 20px;
+	box-shadow: 0px 3px 22px #a4a4a4;
+	max-height: 160px;
+	transition: all 0.5s 0.7s linear;
 }
 
-.flag.animate {
-  transition: all 0.2s 0.7s ease-out, width 0.2s 0.7s ease-out;
-  transform: translateY(-10px);
-  visibility: hidden;
-  opacity: 0;
-  min-width: 0px;
-  width: 0px;
+@media only screen and (min-width: 768px) {
+	.flag {
+		max-height: 180px;
+	}
 }
 
 .hint {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	transition: all 1s 1s ease-out;
 }
 
-.hint-button {
-  float: left;
-  transform: none;
-  transition: all 1s ease-out;
-  padding: 5px 10px;
-  border: 1px solid #262626;
-  border-radius: 15px;
-  background-color: inherit;
+.hint-message {
+	margin: 0;
+	transition: all 1s ease-out;
+}
+
+.score {
+	margin: 30px auto;
+	transition: 0.8s 0.7s var(--bounce);
+}
+
+.score.win {
+	transform: translateY(70px) scale(1.5);
 }

@@ -1,15 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-const Header = ({ score, numOfGuesses, gameInProgress }) => {
+const Header = props => {
 	return (
 		<header>
 			<h1>Country Flag Game</h1>
-			{score === 0 && numOfGuesses === 0 ? (
-				<p>Do you recognize this flag?</p>
+			{props.score === 0 && props.numOfGuesses === 0 ? (
+				<p className="score">Do you recognize this flag?</p>
 			) : (
-				<p>
-					Your score: {score} / {numOfGuesses}
+				<p className={props.toggleVisibility('score', props.gameOver, 'win')}>
+					Your score: {props.score} / {props.numOfGuesses}
 				</p>
 			)}
 		</header>

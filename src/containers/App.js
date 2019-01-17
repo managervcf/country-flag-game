@@ -13,7 +13,7 @@ class CountryFlagGame extends Component {
     this.handleNewGame = this.handleNewGame.bind(this);
   }
   componentWillMount() {
-    this.props.resetFlag();
+    return !this.props.gameOver ? this.props.resetFlag() : null;
   }
 
   async handleNewGame() {
@@ -25,20 +25,29 @@ class CountryFlagGame extends Component {
     return (
       <div>
         <Header />
-        {this.props.numOfGuesses < 10 ? (
-          <main>
+        <main>
+          <div
+            className={this.props.toggleVisibility(
+              'game-over-content',
+              this.props.gameOver
+            )}
+          >
+            <h3>Wow, you must really like this boring game.</h3>
+            <button className="new-game-button" onClick={this.handleNewGame}>
+              Try Again
+            </button>
+          </div>
+          <div
+            className={this.props.toggleVisibility(
+              'game-content',
+              !this.props.gameOver
+            )}
+          >
             <Flag />
             <CountryButtons />
             <Hint />
-          </main>
-        ) : (
-          <main>
-            <h3>Wow, you must really like this boring game.</h3>
-            <button className="btn" onClick={this.handleNewGame}>
-              Try Again
-            </button>
-          </main>
-        )}
+          </div>
+        </main>
         <Footer />
       </div>
     );
