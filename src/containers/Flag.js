@@ -1,14 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-const Flag = ({
-	countries,
-	flag,
-	gameInProgress,
-	gameLost,
-	toggleVisibility
-}) => {
-	const flagClasses = gameLost ? 'flag wrong-guess' : 'flag';
+const Flag = props => {
+	const { countries, flag, gameInProgress, gameLost, toggleVisibility } = props;
+	const flagClasses = gameLost ? 'flag wrong-guess-shake' : 'flag';
 	return (
 		<img
 			className={toggleVisibility(flagClasses, gameInProgress)}

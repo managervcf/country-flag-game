@@ -17,22 +17,40 @@ class CountryOptions extends Component {
 	}
 
 	render() {
-		const countryButtons = this.props.countries.map((country, index) => {
+		const {
+			countries,
+			flag,
+			gameInProgress,
+			gameOver,
+			toggleVisibility
+		} = this.props;
+		const { handleClick } = this;
+		const buttonClasses = this.props.toggleVisibility(
+			'country-buttons',
+			this.props.gameInProgress
+		);
+		const countryButtons = countries.map((country, index) => {
+			const buttonClasses = !gameInProgress
+				? flag === country.flag
+					? 'won hide'
+					: 'lost hide'
+				: 'show';
 			return (
 				<button
-					className={this.props.toggleVisibility(
+					className={toggleVisibility(
 						'country-buttons',
-						this.props.gameInProgress
+						true,
+						buttonClasses,
+						!buttonClasses
 					)}
-					onClick={() =>
-						this.props.gameInProgress ? this.handleClick(country) : null
-					}
+					onClick={() => (gameInProgress ? handleClick(country) : null)}
 					key={index}
 				>
 					{country.name}
 				</button>
 			);
 		});
+		// Render final element
 		return <nav>{countryButtons}</nav>;
 	}
 }

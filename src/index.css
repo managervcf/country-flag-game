@@ -2,8 +2,8 @@
 
 :root {
 	--primary-color: #262626;
-	--shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.1);
-	--shadow-on-hover: 0 2px 40px 0 rgba(0, 0, 0, 0.1);
+	--shadow: 0 2px 50px 0 rgba(0, 0, 0, 0.1);
+	--shadow-on-hover: 0 2px 10px 0 rgba(0, 0, 0, 0.3);
 	--primary-font: 'Cabin Sketch';
 	--bounce: cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
@@ -14,25 +14,25 @@ body {
 	-webkit-tap-highlight-color: rgba(255, 255, 255, 0);
 	user-select: none;
 	text-align: center;
+	margin-top: 20px;
 }
 
 header,
 main {
 	position: relative;
-	/*min-height: 100px;*/
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	font-size: calc(5px + 3vmin);
+	font-size: calc(5px + 3.3vmin);
 }
 
 h1 {
-	margin: 10px auto 0px auto;
+	margin: 0;
 }
 
 nav {
-	height: 55px;
+	height: 60px;
 	margin: 20px 0 5px 0;
 	width: 100%;
 	display: flex;
@@ -42,13 +42,18 @@ nav {
 }
 
 button {
-	/*text-align: center;*/
+	box-shadow: var(--shadow);
 	font-size: 1rem;
 	font-family: inherit;
 	background-color: inherit;
 	border: none;
+	border-radius: 15px;
 	outline: none;
 	cursor: pointer;
+}
+
+button:focus {
+	box-shadow: var(--shadow-on-hover);
 }
 
 footer {
@@ -90,7 +95,43 @@ footer a:hover i {
 	z-index: -1;
 }
 
-.wrong-guess {
+.new-game-button {
+	padding: 10px 15px;
+	box-shadow: var(--shadow);
+	transition: all .5s;
+}
+
+.country-buttons {
+	flex-wrap: wrap;
+	padding: 10px;
+	font-weight: bold;
+	margin: 0 1.5%;
+	transition: all .5s .5s ease-out, box-shadow .3s, background-color .5s;
+}
+
+.won:focus {
+	background-color: lightgreen;
+}
+
+.lost:focus {
+	background-color: lightpink;
+}
+
+.flag {
+	overflow: hidden;
+	border-radius: 20px;
+	box-shadow: 0px 3px 22px #a4a4a4;
+	max-height: 160px;
+	transition: all .5s .7s linear;
+}
+
+@media only screen and (min-width: 768px) {
+	.flag {
+		max-height: 180px;
+	}
+}
+
+.wrong-guess-shake {
 	animation: shake .4s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
 	transform: translate3d(0, 0, 0);
 }
@@ -118,35 +159,6 @@ footer a:hover i {
 	}
 }
 
-
-.new-game-button {
-	padding: 5px 10px;
-	border: 1px solid #262626;
-	border-radius: 15px;
-	box-shadow: var(--shadow);
-	transition: all 0.3s;
-}
-
-.country-buttons {
-	font-weight: bold;
-	margin: 0 1.5%;
-	transition: all 0.5s 0.5s;
-}
-
-.flag {
-	overflow: hidden;
-	border-radius: 20px;
-	box-shadow: 0px 3px 22px #a4a4a4;
-	max-height: 160px;
-	transition: all 0.5s 0.7s linear;
-}
-
-@media only screen and (min-width: 768px) {
-	.flag {
-		max-height: 180px;
-	}
-}
-
 .hint {
 	cursor: pointer;
 	display: flex;
@@ -162,9 +174,13 @@ footer a:hover i {
 
 .score {
 	margin: 30px auto;
-	transition: 0.8s 0.7s var(--bounce);
+	transition: .8s .7s var(--bounce);
 }
 
-.score.win {
+.score.enlarge {
 	transform: translateY(70px) scale(1.5);
+}
+
+.result-message {
+	height: 25px;
 }

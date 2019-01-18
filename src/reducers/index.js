@@ -1,34 +1,10 @@
+import initialState from './initialState';
 import {
 	RESET_FLAG,
 	SHOW_HINT,
 	CHECK_ANSWER,
 	RESTART_GAME
 } from '../constants';
-
-// Initialize state at app start
-const initialState = {
-	flag: '',
-	capital: '',
-	countries: [],
-	population: 0,
-	score: 0,
-	numOfGuesses: 0,
-	numOfGuessOptions: 3,
-	gameInProgress: true,
-	gameWon: false,
-	gameLost: false,
-	gameOver: false,
-	hint: false,
-	toggleVisibility(classes = '', condition = true, newClass) {
-		return newClass
-			? condition
-				? `${classes} ${newClass}`
-				: classes
-			: condition
-				? `${classes} show`
-				: `${classes} hide`;
-	}
-};
 
 const rootReducer = (state = initialState, action) => {
 	switch (action.type) {
@@ -44,16 +20,6 @@ const rootReducer = (state = initialState, action) => {
 					countries.push(randomCountry);
 				}
 			}
-
-			// Old way to pick random countries
-			// const randomIndexes = Array.from(
-			// 	{ length: state.numOfGuessOptions },
-			// 	() => Math.floor(Math.random() * length)
-			// );
-			// const countries = allCountries.filter((country, index) =>
-			// 	randomIndexes.includes(index)
-			// );
-
 			const pickedIndex = Math.floor(Math.random() * countries.length);
 			const { flag, population, capital } = countries[pickedIndex];
 			return {
@@ -80,7 +46,7 @@ const rootReducer = (state = initialState, action) => {
 				gameWon: isFlagGuessed,
 				gameLost: !isFlagGuessed,
 				gameInProgress: false,
-				gameOver: state.numOfGuesses > 8 ? true : false
+				gameOver: state.numOfGuesses >= 9 ? true : false
 			};
 		case RESTART_GAME:
 			return { ...state, numOfGuesses: 0, score: 0, gameOver: false };
