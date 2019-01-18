@@ -11,7 +11,7 @@ class CountryOptions extends Component {
 	handleClick(country) {
 		const { gameOver, resetFlag, checkAnswer } = this.props;
 		checkAnswer(country);
-		setTimeout(() => (!gameOver ? resetFlag() : null), 1200);
+		setTimeout(() => (!gameOver ? resetFlag() : null), 1300);
 	}
 
 	render() {
