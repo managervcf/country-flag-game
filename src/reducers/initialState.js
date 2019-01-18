@@ -17,7 +17,7 @@ export default {
 		veryBad: 'Seriously, go back to school.',
 		bad: 'World map is not your best friend.',
 		ok: 'Not bad, but could be better',
-		good: 'Nice, good score.',
+		good: 'Nice, decent score.',
 		veryGood: 'Great knowledge, congratulations.',
 		perfect: 'Legendary. Now go and explore!'
 	},
