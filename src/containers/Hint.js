@@ -3,35 +3,36 @@ import { connect } from 'react-redux';
 import * as actions from '../actions';
 
 const Hint = props => {
-	const capitalHint = `Capital city is called ${props.capital}.`;
-	const populationHint = `${props.population
+	const {
+		capital,
+		population,
+		hint,
+		gameInProgress,
+		gameWon,
+		showHint
+	} = props;
+	const capitalHint = `Capital city is called ${capital}.`;
+	const populationHint = `${population
 		.toString()
 		.replace(/\B(?=(\d{3})+(?!\d))/g, ',')} people live there.`;
-	const hintMessage = props.hint && (
-		<span>{Math.random() > 0.5 ? populationHint : capitalHint}</span>
+	const hintMessage = hint
+		? Math.random() > 0.5
+			? populationHint
+			: capitalHint
+		: 'Get a hint for 0.5 point.';
+	const isCorrectMessage = gameWon
+		? !hint
+			? 'Correct.'
+			: 'Correct. Try without a hint next time.'
+		: !hint
+			? `Wrong.`
+			: "Even a hint didn't help?";
+	const outputMessage = gameInProgress ? (
+		<p onClick={showHint}>{hintMessage}</p>
+	) : (
+		<p className="is-correct-message">{isCorrectMessage}</p>
 	);
-	const correctAnswer = props.countries.find(
-		country => country.flag === props.flag
-	);
-	return (
-		<div className="hint">
-			{props.gameInProgress ? (
-				<p onClick={props.showHint}>
-					{(props.hint && hintMessage) || 'Get a hint for 0.5 point.'}
-				</p>
-			) : (
-				<p style={{ fontWeight: 'bold' }}>
-					{props.gameWon
-						? !props.hint
-							? 'Correct.'
-							: 'Correct. Try without a hint next time.'
-						: !props.hint
-							? `Wrong.`
-							: "Even a hint didn't help?"}
-				</p>
-			)}
-		</div>
-	);
+	return <div>{outputMessage}</div>;
 };
 
 const mapStateToProps = reduxState => ({

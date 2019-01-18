@@ -14,30 +14,31 @@ class CountryFlagGame extends Component {
     this.displayResultMessage = this.displayResultMessage.bind(this);
   }
   componentWillMount() {
-    return !this.props.gameOver ? this.props.resetFlag() : null;
+    const { gameOver, resetFlag } = this.props;
+    return !gameOver ? resetFlag() : null;
   }
 
   async handleNewGame() {
-    await this.props.resetFlag();
-    this.props.restartGame();
+    const { resetFlag, restartGame } = this.props;
+    await resetFlag();
+    restartGame();
   }
 
   displayResultMessage() {
-    const { score, gameOver, gameInProgress } = this.props;
+    const { score } = this.props;
     const {
-      veryBad,
+      terrible,
       bad,
       ok,
       good,
-      veryGood,
+      great,
       perfect
     } = this.props.gameOverMessages;
-    if (gameInProgress) return ' ';
-    if (!gameInProgress && score < 2) return veryBad;
+    if (score < 2) return terrible;
     if (2 <= score && score < 4) return bad;
     if (4 <= score && score < 6) return ok;
     if (6 <= score && score < 8) return good;
-    if (8 <= score && score < 10) return veryGood;
+    if (8 <= score && score < 10) return great;
     if (score === 10) return perfect;
   }
 

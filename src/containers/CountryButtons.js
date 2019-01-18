@@ -9,26 +9,14 @@ class CountryOptions extends Component {
 	}
 
 	handleClick(country) {
-		this.props.checkAnswer(country);
-		setTimeout(
-			() => (!this.props.gameOver ? this.props.resetFlag() : null),
-			1500
-		);
+		const { gameOver, resetFlag, checkAnswer } = this.props;
+		checkAnswer(country);
+		setTimeout(() => (!gameOver ? resetFlag() : null), 1200);
 	}
 
 	render() {
-		const {
-			countries,
-			flag,
-			gameInProgress,
-			gameOver,
-			toggleVisibility
-		} = this.props;
+		const { countries, flag, gameInProgress, toggleVisibility } = this.props;
 		const { handleClick } = this;
-		const buttonClasses = this.props.toggleVisibility(
-			'country-buttons',
-			this.props.gameInProgress
-		);
 		const countryButtons = countries.map((country, index) => {
 			const buttonClasses = !gameInProgress
 				? flag === country.flag
@@ -50,7 +38,6 @@ class CountryOptions extends Component {
 				</button>
 			);
 		});
-		// Render final element
 		return <nav>{countryButtons}</nav>;
 	}
 }

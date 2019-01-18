@@ -13,11 +13,11 @@ export default {
 	gameOver: false,
 	hint: false,
 	gameOverMessages: {
-		veryBad: 'Seriously, go back to school.',
+		terrible: 'Seriously, go back to school.',
 		bad: 'World map is not your best friend.',
 		ok: 'Not bad, but could be better.',
 		good: 'Nice, decent score.',
-		veryGood: 'Great score, congratulations.',
+		great: 'Great score, congratulations.',
 		perfect: 'Legendary. Now go and explore!'
 	},
 	toggleVisibility(

@@ -142,17 +142,8 @@ footer a:hover i {
 	transform: translate3d(0, 0, 0);
 }
 
-.hint {
-	cursor: pointer;
-	display: flex;
-	align-items: center;
-	flex-direction: column;
-	transition: all 1s 1s ease-out;
-}
-
-.hint-message {
-	margin: 0;
-	transition: all 1s ease-out;
+.is-correct-message {
+	font-weight: bold;
 }
 
 .score {
@@ -166,6 +157,10 @@ footer a:hover i {
 
 .result-message {
 	height: 25px;
+}
+
+.is-correct-message {
+	font-weight: bold !importants;
 }
 
 @keyframes shake {
