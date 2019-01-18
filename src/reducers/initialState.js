@@ -1,5 +1,4 @@
 // Initialize state when app starts
-
 export default {
 	flag: '',
 	capital: '',
@@ -16,9 +15,9 @@ export default {
 	gameOverMessages: {
 		veryBad: 'Seriously, go back to school.',
 		bad: 'World map is not your best friend.',
-		ok: 'Not bad, but could be better',
+		ok: 'Not bad, but could be better.',
 		good: 'Nice, decent score.',
-		veryGood: 'Great knowledge, congratulations.',
+		veryGood: 'Great score, congratulations.',
 		perfect: 'Legendary. Now go and explore!'
 	},
 	toggleVisibility(
