@@ -31,7 +31,7 @@ const rootReducer = (state = initialState, action) => {
 				gameInProgress: true,
 				gameWon: false,
 				gameLost: false,
-				hint: false
+				hint: false,
 			};
 		case SHOW_HINT:
 			return !state.gameWon && !state.hint
@@ -46,7 +46,7 @@ const rootReducer = (state = initialState, action) => {
 				gameWon: isFlagGuessed,
 				gameLost: !isFlagGuessed,
 				gameInProgress: false,
-				gameOver: state.numOfGuesses >= 9 ? true : false
+				gameOver: state.numOfGuesses >= state.maxGuesses - 1 ? true : false
 			};
 		case RESTART_GAME:
 			return { ...state, numOfGuesses: 0, score: 0, gameOver: false };

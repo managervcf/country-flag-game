@@ -6,6 +6,7 @@ export default {
 	population: 0,
 	score: 0,
 	numOfGuesses: 0,
+	maxGuesses: 10,
 	numOfGuessOptions: 3,
 	gameInProgress: true,
 	gameWon: false,

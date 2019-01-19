@@ -25,7 +25,7 @@ class CountryFlagGame extends Component {
   }
 
   displayResultMessage() {
-    const { score } = this.props;
+    const { score, gameOver } = this.props;
     const {
       terrible,
       bad,
@@ -34,6 +34,7 @@ class CountryFlagGame extends Component {
       great,
       perfect
     } = this.props.gameOverMessages;
+    if (!gameOver) return ' ';
     if (score < 2) return terrible;
     if (2 <= score && score < 4) return bad;
     if (4 <= score && score < 6) return ok;
