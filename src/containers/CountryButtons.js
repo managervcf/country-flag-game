@@ -9,9 +9,14 @@ class CountryOptions extends Component {
 	}
 
 	handleClick(country) {
-		const { gameOver, resetFlag, checkAnswer } = this.props;
-		checkAnswer(country);
-		setTimeout(() => (!gameOver ? resetFlag() : null), 1300);
+		const { gameInProgress, checkAnswer, fetchFlag, nextRound } = this.props;
+		if (gameInProgress) {
+			checkAnswer(country);
+			setTimeout(async () => {
+				await fetchFlag();
+				nextRound();
+			}, 1250);
+		}
 	}
 
 	render() {
@@ -31,7 +36,7 @@ class CountryOptions extends Component {
 						buttonClasses,
 						!buttonClasses
 					)}
-					onClick={() => (gameInProgress ? handleClick(country) : null)}
+					onClick={() => handleClick(country)}
 					key={index}
 				>
 					{country.name}

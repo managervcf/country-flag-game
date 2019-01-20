@@ -1,6 +1,7 @@
 import initialState from './initialState';
 import {
-	RESET_FLAG,
+	FETCH_FLAG,
+	NEXT_ROUND,
 	SHOW_HINT,
 	CHECK_ANSWER,
 	RESTART_GAME
@@ -8,7 +9,7 @@ import {
 
 const rootReducer = (state = initialState, action) => {
 	switch (action.type) {
-		case RESET_FLAG:
+		case FETCH_FLAG:
 			const { allCountries } = action;
 			const length = allCountries.length;
 			const countries = [];
@@ -27,11 +28,15 @@ const rootReducer = (state = initialState, action) => {
 				flag,
 				countries,
 				population,
-				capital,
+				capital
+			};
+		case NEXT_ROUND:
+			return {
+				...state,
 				gameInProgress: true,
 				gameWon: false,
 				gameLost: false,
-				hint: false,
+				hint: false
 			};
 		case SHOW_HINT:
 			return !state.gameWon && !state.hint

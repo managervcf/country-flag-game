@@ -14,13 +14,15 @@ class CountryFlagGame extends Component {
     this.displayResultMessage = this.displayResultMessage.bind(this);
   }
   componentWillMount() {
-    const { gameOver, resetFlag } = this.props;
-    return !gameOver ? resetFlag() : null;
+    const { gameOver, fetchFlag } = this.props;
+    if (!gameOver) {
+      fetchFlag();
+    }
   }
 
   async handleNewGame() {
-    const { resetFlag, restartGame } = this.props;
-    await resetFlag();
+    const { fetchFlag, restartGame } = this.props;
+    await fetchFlag();
     restartGame();
   }
 
