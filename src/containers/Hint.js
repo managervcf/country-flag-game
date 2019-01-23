@@ -32,7 +32,7 @@ const Hint = props => {
 	) : (
 		<p className="is-correct-message">{isCorrectMessage}</p>
 	);
-	return <div>{outputMessage}</div>;
+	return <div className="hint">{outputMessage}</div>;
 };
 
 const mapStateToProps = reduxState => ({

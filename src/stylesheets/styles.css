@@ -10,6 +10,7 @@
 
 body {
 	font-family: var(--primary-font);
+	font-size: calc(10px + 2vmin);
 	color: var(--primary-color);
 	-webkit-tap-highlight-color: rgba(255, 255, 255, 0);
 	user-select: none;
@@ -24,7 +25,6 @@ main {
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	font-size: calc(5px + 3.3vmin);
 }
 
 h1 {
@@ -32,7 +32,7 @@ h1 {
 }
 
 nav {
-	height: 60px;
+	height: 4em;
 	margin: 20px 0 5px 0;
 	width: 100%;
 	display: flex;
@@ -43,7 +43,7 @@ nav {
 
 button {
 	box-shadow: var(--shadow);
-	font-size: 1rem;
+	font-size: 0.8em;
 	font-family: inherit;
 	background-color: inherit;
 	border: none;
@@ -61,6 +61,7 @@ footer a:visited {
 }
 
 footer p {
+	font-size: 0.7em;
 	margin: 0.5em;
 }
 
@@ -80,6 +81,7 @@ footer a:hover i {
 .game-over-content {
 	position: absolute;
 	transition: all 0.5s 1s ease-out;
+	font-size: 1em;
 }
 
 .show {
@@ -137,6 +139,10 @@ footer a:hover i {
 	}
 }
 
+.hint{
+	font-size: 1em;
+}
+
 .wrong-guess-shake {
 	animation: shake 0.4s var(--bounce) both;
 	transform: translate3d(0, 0, 0);
@@ -160,7 +166,7 @@ footer a:hover i {
 }
 
 .is-correct-message {
-	font-weight: bold !importants;
+	font-weight: bold;
 }
 
 @keyframes shake {
