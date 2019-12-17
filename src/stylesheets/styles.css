@@ -1,190 +1,190 @@
 @import url('https://fonts.googleapis.com/css?family=Cabin+Sketch');
 
 :root {
-	--primary-color: #262626;
-	--shadow: 0 2px 50px 0 rgba(0, 0, 0, 0.1);
-	--shadow-on-hover: 0 2px 20px 0 rgba(0, 0, 0, 0.3);
-	--primary-font: 'Cabin Sketch';
-	--bounce: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  --primary-color: #262626;
+  --shadow: 0 2px 50px 0 rgba(0, 0, 0, 0.1);
+  --shadow-on-hover: 0 2px 20px 0 rgba(0, 0, 0, 0.3);
+  --primary-font: 'Cabin Sketch';
+  --bounce: cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 body {
-	font-family: var(--primary-font);
-	font-size: calc(10px + 2vmin);
-	color: var(--primary-color);
-	-webkit-tap-highlight-color: rgba(255, 255, 255, 0);
-	user-select: none;
-	text-align: center;
-	margin-top: 20px;
+  font-family: var(--primary-font);
+  font-size: calc(10px + 2vmin);
+  color: var(--primary-color);
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  user-select: none;
+  text-align: center;
+  margin-top: 20px;
 }
 
 header,
 main {
-	position: relative;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 h1 {
-	margin: 0;
+  margin: 0;
 }
 
 nav {
-	height: 4em;
-	margin: 20px 0 5px 0;
-	width: 100%;
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: center;
+  height: 4em;
+  margin: 20px 0 5px 0;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 
 button {
-	box-shadow: var(--shadow);
-	font-size: 0.8em;
-	font-family: inherit;
-	background-color: inherit;
-	border: none;
-	border-radius: 20px;
-	outline: none;
-	cursor: pointer;
+  box-shadow: var(--shadow);
+  font-size: 0.8em;
+  font-family: inherit;
+  background-color: inherit;
+  border: none;
+  border-radius: 20px;
+  outline: none;
+  cursor: pointer;
 }
 
 button:focus {
-	box-shadow: var(--shadow-on-hover);
+  box-shadow: var(--shadow-on-hover);
 }
 
 footer a:visited {
-	color: inherit;
+  color: inherit;
 }
 
 footer p {
-	font-size: 0.7em;
-	margin: 0.5em;
+  font-size: 0.7em;
+  margin: 0.5em;
 }
 
 footer a i {
-	transition: all 0.5s var(--bounce);
+  transition: all 0.5s var(--bounce);
 }
 
 footer a:hover i {
-	animation: shake 0.6s var(--bounce);
-	transform: translate3d(0, 0, 0);
+  animation: shake 0.6s var(--bounce);
+  transform: translate3d(0, 0, 0);
 }
 
 .game-content {
-	transition: all 1s 0.5s ease-out;
+  transition: all 1s 0.5s ease-out;
 }
 
 .game-over-content {
-	position: absolute;
-	transition: all 0.5s 1s ease-out;
-	font-size: 1em;
+  position: absolute;
+  transition: all 0.5s 1s ease-out;
+  font-size: 1em;
 }
 
 .show {
-	opacity: 1;
-	visibility: visible;
-	z-index: 1;
+  opacity: 1;
+  visibility: visible;
+  z-index: 1;
 }
 
 .hide {
-	transition: 0.4s 0.6s ease-out;
-	transform: translateY(10px);
-	opacity: 0;
-	visibility: hidden;
-	z-index: -1;
+  transition: 0.4s 0.6s ease-out;
+  transform: translateY(10px);
+  opacity: 0;
+  visibility: hidden;
+  z-index: -1;
 }
 
 .new-game-button {
-	box-shadow: var(--shadow-on-hover);
-	padding: 10px 15px;
+  box-shadow: var(--shadow-on-hover);
+  padding: 10px 15px;
 }
 
 .new-game-button:focus {
-	transform: translateY(-100px) scale(0);
-	transition: transform 1.2s 0.3s ease-in, opacity 0.4s 0.5s ease-out;
-	opacity: 0;
+  transform: translateY(-100px) scale(0);
+  transition: transform 1.2s 0.3s ease-in, opacity 0.4s 0.5s ease-out;
+  opacity: 0;
 }
 
 .country-buttons {
-	flex-wrap: wrap;
-	padding: 10px;
-	font-weight: bold;
-	margin: 0 1.5%;
-	transition: all 0.5s 0.5s ease-out, box-shadow 0.3s, background-color 0.5s;
+  flex-wrap: wrap;
+  padding: 10px;
+  font-weight: bold;
+  margin: 0 1.5%;
+  transition: all 0.5s 0.5s ease-out, box-shadow 0.3s, background-color 0.5s;
 }
 
 .won:focus {
-	background-color: lightgreen;
+  background-color: lightgreen;
 }
 
 .lost:focus {
-	background-color: lightpink;
+  background-color: lightpink;
 }
 
 .flag {
-	overflow: hidden;
-	border-radius: 20px;
-	box-shadow: 0px 3px 22px #a4a4a4;
-	max-height: 160px;
-	transition: all 0.5s 0.7s linear;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 0px 3px 22px #a4a4a4;
+  max-height: 160px;
+  transition: all 0.5s 0.7s linear;
 }
 
 @media only screen and (min-width: 768px) {
-	.flag {
-		max-height: 180px;
-	}
+  .flag {
+    max-height: 180px;
+  }
 }
 
-.hint{
-	font-size: 1em;
+.hint {
+  font-size: 1em;
 }
 
 .wrong-guess-shake {
-	animation: shake 0.4s var(--bounce) both;
-	transform: translate3d(0, 0, 0);
+  animation: shake 0.4s var(--bounce) both;
+  transform: translate3d(0, 0, 0);
 }
 
 .is-correct-message {
-	font-weight: bold;
+  font-weight: bold;
 }
 
 .score {
-	margin: 30px auto;
-	transition: 0.8s 0.7s var(--bounce);
+  margin: 30px auto;
+  transition: 0.8s 0.7s var(--bounce);
 }
 
 .enlarge {
-	transform: translateY(110px) scale(1.4);
+  transform: translateY(110px) scale(1.4);
 }
 
 .result-message {
-	height: 25px;
+  height: 25px;
 }
 
 .is-correct-message {
-	font-weight: bold;
+  font-weight: bold;
 }
 
 @keyframes shake {
-	10%,
-	90% {
-		transform: translate3d(-1px, 0, 0);
-	}
-	20%,
-	80% {
-		transform: translate3d(2px, 0, 0);
-	}
-	30%,
-	50%,
-	70% {
-		transform: translate3d(-4px, 0, 0);
-	}
-	40%,
-	60% {
-		transform: translate3d(4px, 0, 0);
-	}
+  10%,
+  90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  20%,
+  80% {
+    transform: translate3d(2px, 0, 0);
+  }
+  30%,
+  50%,
+  70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+  40%,
+  60% {
+    transform: translate3d(4px, 0, 0);
+  }
 }

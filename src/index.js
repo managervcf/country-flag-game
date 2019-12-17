@@ -6,9 +6,8 @@ import store from './store/';
 import './stylesheets/styles.css';
 
 ReactDOM.render(
-	<Provider store={store}>
-		<App />
-	</Provider>
-	,
-	document.getElementById('root')
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById('root')
 );
