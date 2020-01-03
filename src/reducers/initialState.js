@@ -21,6 +21,23 @@ export default {
     great: 'Great score, congratulations.',
     perfect: 'Legendary. Now go and explore!'
   },
+  displayResultMessage(score, gameOver, gameOverMessages) {
+    const {
+      terrible,
+      bad,
+      ok,
+      good,
+      great,
+      perfect
+    } = gameOverMessages;
+    if (!gameOver) return ' ';
+    if (score < 2) return terrible;
+    if (2 <= score && score < 4) return bad;
+    if (4 <= score && score < 6) return ok;
+    if (6 <= score && score < 8) return good;
+    if (8 <= score && score < 10) return great;
+    if (score === 10) return perfect;
+  },
   toggleVisibility(
     classes = '',
     condition = true,
