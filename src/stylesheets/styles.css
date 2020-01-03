@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css?family=Cabin+Sketch');
+@import url('https://fonts.googleapis.com/css?family=Asap');
 
 :root {
   --primary-color: #262626;
   --shadow: 0 2px 50px 0 rgba(0, 0, 0, 0.1);
   --shadow-on-hover: 0 2px 20px 0 rgba(0, 0, 0, 0.3);
-  --primary-font: 'Cabin Sketch';
+  --primary-font: 'Asap';
   --bounce: cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
@@ -29,6 +29,10 @@ main {
 
 h1 {
   margin: 0;
+}
+
+p {
+  line-height: 2rem;
 }
 
 nav {
@@ -75,12 +79,12 @@ footer a:hover i {
 }
 
 .game-content {
-  transition: all 1s 0.5s ease-out;
+  transition: all 0.5s 0.5s ease-out;
 }
 
 .game-over-content {
   position: absolute;
-  transition: all 0.5s 1s ease-out;
+  transition: all 0.5s 0.5s ease-out;
   font-size: 1em;
 }
 
@@ -105,7 +109,7 @@ footer a:hover i {
 
 .new-game-button:focus {
   transform: translateY(-100px) scale(0);
-  transition: transform 1.2s 0.3s ease-in, opacity 0.4s 0.5s ease-out;
+  transition: transform 0.7s 0.3s ease-in, opacity 0.4s 0.5s ease-out;
   opacity: 0;
 }
 
@@ -130,7 +134,7 @@ footer a:hover i {
   border-radius: 20px;
   box-shadow: 0px 3px 22px #a4a4a4;
   max-height: 160px;
-  transition: all 0.5s 0.7s linear;
+  transition: all 0.5s 0.2s linear;
 }
 
 @media only screen and (min-width: 768px) {

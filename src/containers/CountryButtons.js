@@ -15,7 +15,7 @@ class CountryOptions extends Component {
       setTimeout(async () => {
         await fetchFlag();
         nextRound();
-      }, 1250);
+      }, 1000);
     }
   }
 
