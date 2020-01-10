@@ -60,6 +60,27 @@ button:focus {
   box-shadow: var(--shadow-on-hover);
 }
 
+progress[value] {
+  margin-bottom: 2rem;
+  -webkit-appearance: none;
+  appearance: none;
+  width: 50vw;
+  max-width: 300px;
+  height: 0.15em;
+}
+
+progress[value]::-webkit-progress-bar {
+  transition: all 0.5s ease-out;
+  border-radius: 1rem;
+  background-color: white;
+  box-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.07) inset;
+}
+progress[value]::-webkit-progress-value {
+  transition: all 0.5s ease-out;
+  border-radius: 1rem;
+  background: linear-gradient(to right, #74ebd5, #acb6e5);
+}
+
 footer a:visited {
   color: inherit;
 }

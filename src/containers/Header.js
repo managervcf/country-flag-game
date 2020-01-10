@@ -13,11 +13,19 @@ const Header = props => {
           Do you recognize this flag?
         </p>
       ) : (
-        <p className={toggleVisibility('score', gameOver, 'enlarge')}>
-          Your score: <strong>{score} / {maxGuesses}</strong>
-          <br />
-          {!gameOver && `Flags left: ${maxGuesses - numOfGuesses}`}
-        </p>
+        <>
+          <p className={toggleVisibility('score', gameOver, 'enlarge')}>
+            Your score:{' '}
+            <strong>
+              {score} / {maxGuesses}
+            </strong>
+          </p>
+          <progress
+            className={toggleVisibility('', !gameOver)}
+            max={maxGuesses}
+            value={numOfGuesses}
+          ></progress>
+        </>
       )}
     </header>
   );
