@@ -13,4 +13,4 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ## Production
 
-For the deployed version, please visit [herokuapp.com](https://country-flag-game.herokuapp.com).
+For the deployed version, please visit [herokuapp.com](https://country-flag-game.netlify.app/).
